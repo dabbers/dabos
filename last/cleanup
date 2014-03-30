@@ -1,0 +1,1 @@
+rm *.o a.out cat cp grep init login more 2> /dev/null

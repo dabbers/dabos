@@ -1,0 +1,13 @@
+as86 -o bs.o bs.s
+bcc -c -ansi bc.c -O
+
+ld86 -d bs.o bc.o /usr/lib/bcc/libc.a
+
+dd if=a.out of=fd bs=1024 count=1 conv=notrunc
+
+rm a.out *.o
+
+echo ready to run QEMU on fd?
+read ANS
+
+qemu -fda fd -no-fd-bootchk
